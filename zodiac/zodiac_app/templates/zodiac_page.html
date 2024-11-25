@@ -1,0 +1,20 @@
+{% load static %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ваш космический гороскоп для {{ zodiac_data.zodiac_ru|title }}</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
+    <link type="text/css" href="{% static 'style/horoscop.css' %}" rel="stylesheet"/>
+</head>
+<body>
+<div class="horoscope-container">
+    {{ zodiac_data.svg|safe }}
+    <h1>{{ zodiac_data.zodiac_ru|title }}</h1>
+    {{ html_description|safe}}
+    <a href="/" class="btn">На главную</a>
+</div>
+
+<script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

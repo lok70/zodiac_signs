@@ -1,0 +1,22 @@
+{% load static %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Космический гороскоп - Все знаки зодиака</title>
+    <link rel="icon" type="image/x-icon" href="{% static 'img/favicon.ico' %}">
+    <link type="text/css" href="{% static 'style/main.css' %}" rel="stylesheet"/>
+</head>
+<body>
+<div class="horoscope-grid">
+    {% for info in main_data %}
+    <div class="horoscope-card">
+        {{ info.svg|safe }}
+        <h2>{{ info.zodiac_ru|title }}</h2>
+        <p>{{ info.start_day }} - {{ info.end_day }}</p>
+        <a href="/{{ info.zodiac_en }}" class="btn">Смотреть гороскоп</a>
+    </div>
+    {% endfor %}
+</div>
+</body>
+</html>
